@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image upload</title>
+</head>
+<body>
+    <form action="image.php" enctype="multipart/form-data" method="post">
+        <label>Image</label>
+        <input type="file" name="image-file"/><br/><br/>
+        
+        <label>Image Type</label>
+        <select name="image-type">
+            <option value="jpg">jpg</option>
+            <option value="jpeg">jpeg</option>
+            <option value="png">png</option>
+            <option value="gif">gif</option>            
+        </select><br/><br/>
+        
+        <label>Image Resolution</label>
+        <select name="image-resolution" id="image-resolution"></select>
+        <br/><br/>
+
+        <label>Convert file name</label>
+        <input type="text" name="image-name"/>
+        <br/><br/>
+
+        <input type="submit"/>
+    </form>
+
+    <script type="text/javascript">
+        let select = document.createDocumentFragment();
+        for (let i=90; i >= 10; i = i-10) {
+            let option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            select.appendChild(option);
+        }        
+        document.getElementById('image-resolution').appendChild(select);
+    </script>
+</body>
+</html>
